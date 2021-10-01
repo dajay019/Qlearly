@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+}
+
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+javadoc.options.encoding = 'UTF-8'
+
+group 'org.qlearly'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'org.testng:testng:6.14.3'
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '4.4.0'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+}
+
+task executetests(type: Test) {
+    try{
+        useTestNG() {
+            dependsOn cleanTest
+            useDefaultListeners = true
+            suites "src/test/resources/testxmls/test.xml"
+            outputDirectory file("reports")
+//            includeGroups "Guest"
+//            excludeGroups ""
+//            parallel "methods"
+//            threadCount 1
+        }
+    } catch (MissingPropertyException e){
+        assert true
+    }
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+    }
+
+}

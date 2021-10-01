@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="TestAutomationSuite">
+  <listeners>
+    <!--    Used to provide custom implementation for testng listeners-->
+  </listeners>
+  <test name="Tests">
+    <groups>
+      <define name="demo">
+        <include name="Guest"/>
+        <include name="import"/>
+      </define>
+    </groups>
+
+    <packages>
+      <package name="com.qlearly.automation.tests.ui.*"/>
+    </packages>
+
+    <classes>
+      <class name="com.qlearly.automation.tests.supportmodules.TestFlowController"/>
+    </classes>
+
+
+  </test>
+</suite>

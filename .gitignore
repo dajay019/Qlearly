@@ -1,0 +1,8 @@
+#ignore tracking of the below files and folders
+.gradle/
+.idea/
+.git/
+build/
+gradle/
+out/
+reports/
