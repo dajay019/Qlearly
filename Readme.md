@@ -24,6 +24,7 @@ Considered the crx file extension is downloaded and available in the test client
 Steps to execute:
 Once the gradle build is successful, Please update the crx file path (on test client machine) in the test.properties file
 Open command prompt and navigate to the path where build.gradle is accessible and run 
-"gradle --rerun-tasks executetests" and the tests will be executed and reports are generated in the local machine workspace under reports directory
+"gradle --rerun-tasks executetests" 
+tests will be executed and reports are generated in the local machine workspace under reports directory
 
 
